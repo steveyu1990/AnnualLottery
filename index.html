@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>周年庆征文活动</title>
+    </head>
+
+    <body>
+        <form id="content_form" onsubmit="return submitForm()">
+            <div>
+                <div>
+                    <label for="mobile">手机号：</label>
+                    <input id="mobile" name="mobile" type="text" onkeyup="checkMobile(this)" maxlength="11">
+                </div>
+                <div>
+                    <label for="content">征文内容：</label>
+                    <textarea id="content" name="content" maxlength="500"></textarea>
+                </div>
+                <div>
+                    <button type="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+function submitForm() {
+
+}
+
+function checkMobile(ts) {
+    let mobile = ts.value;
+
+    if (/^[1][3,4,5,7,8,9][0-9]{9}$/.test(mobile)) {
+        let param = {'mobile':mobile};
+        $.post('checkMobile.php', param, function(response){
+            response = JSON.parse(response);
+
+            if (response.error) {
+                alert(response.msg);
+            }
+        });
+    }
+}
+</script>
