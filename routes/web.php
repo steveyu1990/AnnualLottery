@@ -19,3 +19,5 @@ Route::post('/check_mobile', 'LotteryController@checkMobile');
 Route::post('/register', 'LotteryController@register');
 Route::get('/lottery', 'LotteryController@lottery');
 Route::get('/lucky', 'LotteryController@lucky');
+Route::get('/content', 'LotteryController@content');
+Route::get('/gift_log', 'LotteryController@giftLog');

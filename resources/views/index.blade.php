@@ -64,6 +64,7 @@
                 '_token':"{{ csrf_token() }}"
             };
             $.post('/check_mobile', param, function(response){
+                console.log(response);
                 alert(response.msg);
 
                 if (response.code) {

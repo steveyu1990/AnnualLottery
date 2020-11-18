@@ -57,7 +57,7 @@ if (version_compare(phpversion(), '7.1', '>=')) {
     ini_set( 'serialize_precision', -1 );
 }
 
-$env = '.env';
+$env = '.env.production';
 $app->loadEnvironmentFrom($env);
 
 return $app;

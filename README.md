@@ -66,3 +66,10 @@ CREATE TABLE `gift_log` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 ```
+
+## redis数据初始化,设置奖品数量上限
+```
+select 8
+set phone 5
+set phone_card 100
+```

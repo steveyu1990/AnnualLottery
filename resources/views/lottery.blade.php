@@ -27,6 +27,10 @@
     function submitForm() {
         $.get('/lucky', {}, function(response){
             console.log(response);
+
+            if (response.msg) {
+                alert(response.msg);
+            }
         });
     }
 
