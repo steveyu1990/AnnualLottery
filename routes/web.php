@@ -21,3 +21,5 @@ Route::get('/lottery', 'LotteryController@lottery');
 Route::get('/lucky', 'LotteryController@lucky');
 Route::get('/content', 'LotteryController@content');
 Route::get('/gift_log', 'LotteryController@giftLog');
+Route::get('/export_content', 'LotteryController@exportContent');
+Route::get('/export_gift_log', 'LotteryController@exportGiftLog');

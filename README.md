@@ -36,7 +36,24 @@ server {
 }
 ```
 
-##修改.env的mysql、redis配置信息
+##修改.env.production文件的mysql、redis配置信息
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=lottery
+DB_USERNAME=root
+DB_PASSWORD=123456
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+REDIS_DATABASE_NUM=8
+
+REDIS_PREFIX=lottery_
+REDIS_DB=8
+REDIS_CACHE_DB=1
+```
 
 
 ##创建数据库
@@ -73,3 +90,19 @@ select 8
 set phone 5
 set phone_card 100
 ```
+
+## 使用说明
+
+登入页：http://local.lottery.com/   
+手机号符合规则会发送验证码，默认正确验证码为：6666  
+未参与过互动的会让填写征文信息，然后提交后调整抽奖页面  
+此时会记录用户手机号到cookie作为之后的抽奖准入凭证  
+cookie记录抽奖准入凭证之后，进入登入页会自动跳转抽奖页  
+
+抽奖页面：http://local.lottery.com/lottery  
+抽奖页可以退出当前手机号，回首页重复上面的流程  
+抽奖会按照概率中奖并记录
+
+活动数据详情页：http://local.lottery.com/content  
+可以查看征文信息，下载征文、奖品记录
+

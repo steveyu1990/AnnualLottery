@@ -11,4 +11,9 @@ class User extends Model
 
     const UPDATED_AT = 'update_time';
     const CREATED_AT = 'create_time';
+
+    protected $casts = [
+        'update_time' => 'datetime:Y-m-d H:i:s',
+        'create_time' => 'datetime:Y-m-d H:i:s',
+    ];
 }

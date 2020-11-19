@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\GiftLog;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
+use App\Exports\GiftLogsExport;
 
 class LotteryController extends Controller
 {
@@ -237,14 +240,19 @@ SCRIPT;
 
     public function content(Request $request)
     {
-        $users = User::orderBy('id', 'desc')->paginate(50);
+        $users = User::orderBy('id', 'desc')->paginate(10);
 
         return view('contentList', ['list' => $users]);
     }
 
-    public function giftLog(Request $request)
+    public function exportContent(Request $request)
     {
-        $gift_logs = GiftLog::get()->toArray();
+        return Excel::download(new UsersExport, '征文详情_' . time() . '.xlsx');
+    }
+
+    public function exportGiftLog(Request $request)
+    {
+        return Excel::download(new GiftLogsExport, '礼物详情_' . time() . '.xlsx');
     }
 
     public function quite()

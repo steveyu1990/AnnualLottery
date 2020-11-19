@@ -16,7 +16,7 @@
             </div>
             <div id="code_div" style="display: none">
                 <label for="code">验证码：</label>
-                <input id="code" name="code" type="text" maxlength="4">
+                <input id="code" name="code" type="text" maxlength="4" placeholder="默认值: 6666">
             </div>
             <div id="content_div" style="display: none">
                 <label for="content">征文内容：</label>
