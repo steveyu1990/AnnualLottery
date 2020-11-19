@@ -86,6 +86,7 @@ CREATE TABLE `gift_log` (
 
 ## redis数据初始化,设置奖品数量上限
 ```
+选择配置文件中设置的库
 select 8
 set phone 5
 set phone_card 100
